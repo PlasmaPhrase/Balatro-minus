@@ -24,6 +24,14 @@ SMODS.Atlas({
     atlas_table = "ASSET_ATLAS"
 })
 
+SMODS.Atlas({
+    key = "CustomDecks", 
+    path = "CustomDecks.png", 
+    px = 71,
+    py = 95, 
+    atlas_table = "ASSET_ATLAS"
+})
+
 local NFS = require("nativefs")
 to_big = to_big or function(a) return a end
 lenient_bignum = lenient_bignum or function(a) return a end
@@ -42,6 +50,21 @@ local function load_jokers_folder()
     end
 end
 
+
+local deckIndexList = {1}
+
+local function load_decks_folder()
+    local mod_path = SMODS.current_mod.path
+    local decks_path = mod_path .. "/decks"
+    local files = NFS.getDirectoryItemsInfo(decks_path)
+    for i = 1, #deckIndexList do
+        local file_name = files[deckIndexList[i]].name
+        if file_name:sub(-4) == ".lua" then
+            assert(SMODS.load_file("decks/" .. file_name))()
+        end
+    end
+end
+
 local function load_rarities_file()
     local mod_path = SMODS.current_mod.path
     assert(SMODS.load_file("rarities.lua"))()
@@ -49,6 +72,7 @@ end
 
 load_rarities_file()
 load_jokers_folder()
+load_decks_folder()
 SMODS.ObjectType({
     key = "minus_food",
     cards = {

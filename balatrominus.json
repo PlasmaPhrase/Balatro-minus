@@ -1,0 +1,17 @@
+{
+  "id": "balatrominus",
+  "name": "Balatro minus",
+  "author": [
+    "Plasma"
+  ],
+  "description": "Distrust the process",
+  "prefix": "minus",
+  "main_file": "main.lua",
+  "version": "1.0.0",
+  "priority": 0,
+  "badge_colour": "fd5f55",
+  "badge_text_colour": "ffffff",
+  "dependencies": [
+    "Steamodded (>=1.0.0~BETA-0827c)"
+  ]
+}

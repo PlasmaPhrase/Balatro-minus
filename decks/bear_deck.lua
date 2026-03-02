@@ -1,8 +1,7 @@
 SMODS.Back {
     key = 'bear_deck',
     pos = { x = 0, y = 0 },
-    config = {
-    },
+    config = { vouchers = { 'v_overstock_norm' } },
     loc_txt = {
         name = 'Bear Deck',
         text = {
